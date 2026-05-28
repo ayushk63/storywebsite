@@ -1,0 +1,724 @@
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+
+#buttonDiv {
+  gap: 1rem;
+  display: flex;
+  margin-left: 360px;
+  margin-top: 20px;
+}
+
+#registerButton {
+  background-color: red;
+  color: white;
+  padding: 10px 40px;
+  width: 200px;
+  border: none;
+  font-size: 1.3rem;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+#loginButton {
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 40px;
+  width: 200px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#registerButton:hover {
+  cursor: pointer;
+  color: red;
+  border: 2px solid red;
+  background-color: white;
+}
+
+#loginButton:hover {
+  cursor: pointer;
+  color: darkgreen;
+  background-color: white;
+  border: 2px solid darkgreen;
+}
+
+#writeStoryButton {
+  color: white;
+  background-color: darkblue;
+  border: none;
+  padding: 10px 20px;
+  width: 200px;
+  font-weight: bold;
+  font-size: medium;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+#writeStoryButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: darkblue;
+  border: 2px solid darkblue;
+}
+
+#viewStoryButton {
+  color: white;
+  background-color: purple;
+  border: none;
+  padding: 10px 20px;
+  width: 200px;
+  font-weight: bold;
+  font-size: medium;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+#viewStoryButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: purple;
+  border: 2px solid purple;
+}
+
+#likeButton {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: darkred;
+  font-weight: bold;
+  font-size: medium;
+  padding: 10px 20px;
+  width: 100px;
+  margin-left: 5px;
+}
+
+#likeButton:hover {
+  cursor: pointer;
+  color: darkred;
+  background-color: white;
+  border: 2px solid darkred;
+}
+
+#likeButton2 {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: darkred;
+  font-weight: bold;
+  font-size: medium;
+  padding: 10px 20px;
+  width: 100px;
+  margin-left: 5px;
+}
+
+#likeButton2:hover {
+  cursor: pointer;
+  color: darkred;
+  background-color: white;
+  border: 2px solid darkred;
+}
+
+#commentInput {
+  padding: 5px;
+  font-size: medium;
+  width: 400px;
+}
+
+.Navbar {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: black;
+  color: white;
+}
+
+.Navbar ul {
+  display: flex;
+  gap: 1rem;
+  margin-left: 600px;
+}
+
+.Navbar ul li {
+  font-weight: bold;
+  font-size: medium;
+  list-style: none;
+  padding: 5px;
+}
+
+#navHeading {
+  font-weight: bolder;
+  font-size: larger;
+  margin-left: 20px;
+}
+
+#hero {
+  display: flex;
+  margin-top: 50px;
+}
+
+#right {
+  margin-top: 100px;
+  color: black;
+  font-family: cursive;
+  font-size: larger;
+}
+
+.Register {
+  color: black;
+  text-align: left;
+}
+
+.label {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#registerDiv {
+  margin-left: 400px;
+  margin-top: 40px;
+  width: 300px;
+  height: 480px;
+  padding: 20px;
+  box-shadow: 10px 10px 20px black;
+}
+
+#registerForm {
+  margin-left: 15px;
+}
+
+.input {
+  padding: 5px;
+  font-size: medium;
+  margin-top: 10px;
+  width: 250px;
+}
+
+#registerButton2 {
+  width: 200px;
+  padding: 10px 30px;
+  font-size: large;
+  color: white;
+  border: none;
+  background-color: black;
+  margin-left: 35px;
+  margin-top: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+#registerButton2:hover {
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+}
+
+#alreadyLogin {
+  display: flex;
+  gap: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.link {
+  text-decoration: none;
+  color: darkblue;
+}
+
+.Login {
+  color: black;
+  text-align: left;
+}
+
+#loginDiv {
+  margin-left: 400px;
+  margin-top: 100px;
+  width: 300px;
+  height: 280px;
+  padding: 20px;
+  box-shadow: 10px 10px 20px black;
+}
+
+#loginForm {
+  margin-left: 15px;
+}
+
+#loginButton2 {
+  width: 200px;
+  padding: 10px 30px;
+  font-size: large;
+  color: white;
+  border: none;
+  background-color: black;
+  margin-left: 35px;
+  margin-top: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+#loginButton2:hover {
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+}
+
+#dontRegister {
+  display: flex;
+  gap: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.StoryWrite {
+  color: black;
+  text-align: left;
+}
+
+#theStoryDiv {
+  display: flex;
+  color: white;
+}
+
+#writeStoryDiv {
+  margin-left: 50px;
+  background-color: darkred;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+#storyInput {
+  margin-top: 10px;
+  font-size: large;
+  padding: 5px;
+}
+
+#storyWritingImage2 {
+  width: 600px;
+  height: 350px;
+  margin-top: 150px;
+  margin-left: 30px;
+}
+
+#storyDiv2 {
+  color: black;
+}
+
+#enjoyWriting {
+  margin-left: 220px;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-top: 50px;
+}
+
+#publishButton {
+  padding: 10px 30px;
+  width: 150px;
+  color: white;
+  background-color: purple;
+  font-weight: bold;
+  font-size: medium;
+  border: none;
+  border-radius: 10px;
+}
+
+#publishButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: purple;
+  border: 2px solid purple;
+}
+
+.StoryView {
+  color: black;
+}
+
+#searchButton {
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+  width: 150px;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+#searchButton:hover {
+  cursor: pointer;
+  color: black;
+  border: 2px solid black;
+  background-color: white;
+}
+
+#searchDiv {
+  margin-top: 40px;
+}
+
+#commentHeading {
+  font-size: 1.5rem;
+  font-family: Arial;
+  font-weight: bold;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.commentDiv2 {
+  margin-top: 20px;
+  text-align: left;
+  background-color: rgb(4, 43, 4);
+  border-radius: 10px;
+  width: 600px;
+  color: white;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+#commentButton {
+  border: none;
+  color: white;
+  background-color: black;
+  color: white;
+  padding: 10px 30px;
+  width: 200px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: medium;
+}
+
+#commentButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.Profile {
+  color: black;
+}
+
+#logoutButton {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 10px 30px;
+  width: 150px;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#logoutButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+#genreHeading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Verdana;
+}
+
+#genreRow {
+  display: flex;
+  gap: 4rem;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.genreLabel {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.genreImage {
+  width: 200px;
+  height: 150px;
+  margin-top: 20px;
+  border-radius: 25px;
+}
+
+.genreButton {
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: darkgreen;
+  color: white;
+  font-size: small;
+  font-weight: bold;
+  padding: 10px 30px;
+  width: 200px;
+}
+
+.genreButton:hover {
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid darkgreen;
+  color: darkgreen;
+}
+
+.genreStoryDiv {
+  gap: 2rem;
+  margin-top: 20px;
+}
+
+.genreStoryTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: Verdana;
+}
+
+.genreStoryButton {
+  margin-top: 15px;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  background-color: red;
+  width: 150px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.genreStoryButton:hover {
+  cursor: pointer;
+  border: 2px solid red;
+  background-color: white;
+  color: red;
+}
+
+.updateButton {
+  border: none;
+  padding: 10px 30px;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+  width: 250px;
+  margin-top: 15px;
+}
+
+.updateButton:hover {
+  cursor: pointer;
+  border: 2px solid red;
+  color: red;
+  background-color: white;
+}
+
+#updateNameDiv, #updatePasswordDiv {
+  display: none;
+}
+
+#newNameInput, #oldPasswordInput, #newPasswordInput {
+  font-size: medium;
+  padding: 5px;
+  width: 250px;
+  margin-top: 15px;
+}
+
+.updateButton2 {
+  border: none;
+  padding: 10px 30px;
+  width: 150px;
+  background-color: darkmagenta;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.updateButton2:hover {
+  border: 2px solid darkmagenta;
+  color: darkmagenta;
+  cursor: pointer;
+  background-color: white;
+}
