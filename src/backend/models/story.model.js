@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://localhost:27017/StoryProject");
+mongoose.connect(process.env.MONGODB_URI);
 
 const storySchema = mongoose.Schema({
     title: {
