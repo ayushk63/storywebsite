@@ -37,9 +37,8 @@
 
 #likeButton,
 #likeButton2 {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: block;
+  margin: 0 auto !important;
   background: transparent;
   border: 1.5px solid var(--rose);
   color: var(--rose);
@@ -243,9 +242,34 @@ button {
 #buttonDiv {
   display: flex;
   gap: 1rem;
-  margin-top: 38px;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 32px 7%;
+}
+
+/* =========================
+   SEARCH & STORY VIEW
+========================= */
+
+#searchDiv,
+#storyViewDiv,
+#commentDiv,
+#genreResultDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 7%;
+}
+
+.genreStory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
 }
 
 /* =========================

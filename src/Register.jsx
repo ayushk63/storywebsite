@@ -32,22 +32,19 @@ function Register() {
         <div className = 'Register'>
             <div id = 'registerDiv'>
                 <form id = 'registerForm'>
-                    <label className = 'label'>Name: </label><br />
+                    <label className = 'label'>Name: </label>
                     <input className = 'input' placeholder='Enter your name....' type = 'text'
                     onChange={(e) => setName(e.target.value)} />
-                    <br /><br />
-                    <label className = 'label'>Username: </label><br />
+                    <label className = 'label'>Username: </label>
                     <input className = 'input' placeholder='Enter a username....' type = 'text'
                     onChange = {(e) => setUsername(e.target.value)} />
-                    <br /><br />
-                    <label className = 'label'>Email: </label><br />
+                    <label className = 'label'>Email: </label>
                     <input className = 'input' placeholder='Enter your email....' type = 'text'
                     onChange={(e) => setEmail(e.target.value)} />
-                    <br /><br />
-                    <label className = 'label'>Password: </label><br />
+                    <label className = 'label'>Password: </label>
                     <input className = 'input' placeholder='Enter a password....' type = 'password'
                     onChange={(e) => setPassword(e.target.value)} />
-                    <br /><br />
+                    <br />
                     <button id ='registerButton2' type = 'button' onClick={registerUser}>REGISTER</button>
                     <div id = 'alreadyLogin'>
                         <div id = 'already'>Already Have An Account?</div>

@@ -46,14 +46,13 @@ function Login() {
         <div className = 'Login'>
             <div id = 'loginDiv'>
                 <form id = 'loginForm'>
-                    <label className = 'label'>Email: </label><br />
+                    <label className = 'label'>Email: </label>
                     <input className = 'input' placeholder='Enter your email....' type = 'text'
                     onChange = {(e) => setEmail(e.target.value)} />
-                    <br /><br />
-                    <label className = 'label'>Password: </label><br />
+                    <label className = 'label'>Password: </label>
                     <input className = 'input' placeholder='Enter your password....' type = 'password'
                     onChange={(e) => setPassword(e.target.value)} />
-                    <br /><br />
+                    <br />
                     <button id = 'loginButton2' type='button' onClick={userLogin}>LOGIN</button>
                     <div id = 'dontRegister'>
                         <div id = 'dont'>Don't Have An Account?</div>
