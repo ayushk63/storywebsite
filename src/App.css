@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* =========================
+   CSS VARIABLES
+========================= */
+
+:root {
+  --ink: #0d0d14;
+  --paper: #f7f4ef;
+  --cream: #faf8f4;
+  --gold: #c9a84c;
+  --gold-light: #e8c96a;
+  --gold-muted: #8a6e2f;
+  --rose: #c94c6b;
+  --cobalt: #2155b5;
+  --sage: #3a7d5e;
+  --muted: #6b6878;
+  --border: rgba(201, 168, 76, 0.25);
+  --shadow-soft: 0 4px 24px rgba(13, 13, 20, 0.08);
+  --shadow-deep: 0 16px 60px rgba(13, 13, 20, 0.18);
+  --shadow-gold: 0 8px 32px rgba(201, 168, 76, 0.2);
+}
+
+/* =========================
+   RESET & BASE
+========================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +34,10 @@
 html,
 body {
   overflow-x: hidden;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f7fb;
-  color: #111;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
 }
 
 img {
@@ -19,7 +47,8 @@ img {
 }
 
 button {
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* =========================
@@ -30,36 +59,77 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 6%;
-  background: #111;
-  color: white;
+  padding: 22px 7%;
+  background: var(--ink);
+  color: var(--paper);
   flex-wrap: wrap;
   gap: 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.Navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 7%;
+  right: 7%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.5;
 }
 
 #navHeading {
-  font-size: 1.7rem;
-  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .Navbar ul {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   list-style: none;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .Navbar ul li {
   cursor: pointer;
-  transition: 0.3s;
-  font-weight: 600;
+  transition: color 0.25s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(247, 244, 239, 0.75);
+  position: relative;
+}
+
+.Navbar ul li::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
 }
 
 .Navbar ul li:hover {
-  color: #ff4d6d;
+  color: var(--gold-light);
+}
+
+.Navbar ul li:hover::after {
+  width: 100%;
 }
 
 /* =========================
@@ -70,33 +140,81 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
-  padding: 70px 6%;
+  gap: 5rem;
+  padding: 90px 7%;
   flex-wrap: wrap;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+  min-height: 88vh;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+#hero::after {
+  content: '"';
+  font-family: 'Playfair Display', serif;
+  position: absolute;
+  bottom: -60px;
+  left: 4%;
+  font-size: 28rem;
+  font-weight: 900;
+  color: rgba(201, 168, 76, 0.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 
 #right {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
+  max-width: 580px;
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 #right h1 {
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.6rem;
+  line-height: 1.1;
+  font-weight: 900;
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+#right h1 em {
+  font-style: italic;
+  color: var(--gold-muted);
 }
 
 #right p {
   font-size: 1.1rem;
-  color: #555;
-  line-height: 1.7;
+  color: var(--muted);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 480px;
 }
 
 #buttonDiv {
   display: flex;
   gap: 1rem;
-  margin-top: 30px;
+  margin-top: 38px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 /* =========================
@@ -118,51 +236,72 @@ button {
 .updateButton,
 .updateButton2 {
   border: none;
-  padding: 14px 26px;
-  border-radius: 14px;
-  font-weight: 700;
+  padding: 14px 30px;
+  border-radius: 4px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  font-size: 0.88rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
 }
 
 #registerButton,
-.genreStoryButton,
-.updateButton {
-  background: #ff4d4d;
-  color: white;
+.updateButton,
+.genreStoryButton {
+  background: var(--ink);
+  color: var(--gold-light);
+  border: 1px solid var(--gold-muted);
 }
 
 #loginButton,
 .genreButton {
-  background: #008f5d;
-  color: white;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
 }
 
 #writeStoryButton {
-  background: #1f5eff;
-  color: white;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: var(--shadow-gold);
 }
 
 #viewStoryButton,
-#publishButton,
 .updateButton2 {
-  background: #7b2cff;
+  background: var(--cobalt);
+  color: white;
+}
+
+#publishButton {
+  background: var(--sage);
   color: white;
 }
 
 #searchButton,
-#commentButton,
+#commentButton {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 #logoutButton,
 #registerButton2,
 #loginButton2 {
-  background: #111;
-  color: white;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(107, 104, 120, 0.35);
 }
 
 button:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(13, 13, 20, 0.15);
+}
+
+#writeStoryButton:hover {
+  box-shadow: 0 12px 36px rgba(201, 168, 76, 0.35);
+  background: var(--gold-light);
 }
 
 /* =========================
@@ -173,23 +312,25 @@ button:hover {
 #loginDiv,
 #writeStoryDiv {
   width: 100%;
-  max-width: 420px;
-  margin: 50px auto;
-  padding: 35px;
-  border-radius: 24px;
+  max-width: 440px;
+  margin: 60px auto;
+  padding: 44px;
+  border-radius: 6px;
   background: white;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+  box-shadow: var(--shadow-deep);
+  border-top: 3px solid var(--gold);
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 #writeStoryDiv {
-  max-width: 650px;
+  max-width: 680px;
 }
 
 #registerForm,
 #loginForm {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .input,
@@ -199,22 +340,36 @@ button:hover {
 #oldPasswordInput,
 #newPasswordInput {
   width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
+  padding: 14px 16px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(13, 13, 20, 0.12);
   font-size: 1rem;
   outline: none;
+  background: var(--paper);
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  color: var(--ink);
 }
 
 .input:focus,
 #storyInput:focus,
-#commentInput:focus {
-  border-color: #7b2cff;
+#commentInput:focus,
+#newNameInput:focus,
+#oldPasswordInput:focus,
+#newPasswordInput:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+  background: white;
 }
 
 .label {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
   margin-bottom: 6px;
+  display: block;
 }
 
 /* =========================
@@ -224,15 +379,27 @@ button:hover {
 .genreStoryDiv,
 .commentDiv2 {
   background: white;
-  padding: 24px;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  padding: 28px 32px;
+  border-radius: 6px;
+  box-shadow: var(--shadow-soft);
   margin-top: 24px;
+  border-left: 3px solid var(--gold);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.genreStoryDiv:hover,
+.commentDiv2:hover {
+  box-shadow: var(--shadow-deep);
+  transform: translateY(-2px);
 }
 
 .genreStoryTitle {
-  font-size: 1.3rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
   margin-bottom: 12px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
 }
 
 /* =========================
@@ -243,21 +410,43 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
-  padding: 40px 6%;
+  padding: 50px 7%;
 }
 
 .genreImage {
   width: 100%;
-  height: 180px;
+  height: 190px;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 4px;
+  filter: grayscale(20%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.genreImage:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.genreCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.35s ease;
+}
+
+.genreCard:hover {
+  box-shadow: var(--shadow-deep);
 }
 
 .genreLabel {
   display: block;
-  margin-top: 15px;
-  font-size: 1.2rem;
+  margin-top: 16px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
   font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
 }
 
 /* =========================
@@ -268,28 +457,92 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
-  padding: 50px 6%;
+  gap: 4rem;
+  padding: 70px 7%;
   flex-wrap: wrap;
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+#theStoryDiv::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(201, 168, 76, 0.03) 80px,
+      rgba(201, 168, 76, 0.03) 81px
+    );
+  pointer-events: none;
 }
 
 #storyWritingImage2 {
-  max-width: 500px;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  max-width: 480px;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(201, 168, 76, 0.2);
 }
 
 /* =========================
-   HEADINGS
+   SECTION DIVIDERS & HEADINGS
 ========================= */
 
 #enjoyWriting,
 #genreHeading,
 #commentHeading {
   text-align: center;
-  margin-top: 40px;
-  font-size: 2rem;
-  font-weight: 800;
+  margin-top: 60px;
+  margin-bottom: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  position: relative;
+}
+
+#enjoyWriting::after,
+#genreHeading::after,
+#commentHeading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 16px auto 0;
+}
+
+/* =========================
+   DECORATIVE RULE
+========================= */
+
+.section-rule {
+  width: 80px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 48px;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-muted);
+  border-radius: 3px;
 }
 
 /* =========================
@@ -298,12 +551,13 @@ button:hover {
 
 @media (max-width: 1024px) {
   #hero {
-    padding: 50px 5%;
-    gap: 2rem;
+    padding: 60px 5%;
+    gap: 3rem;
+    min-height: auto;
   }
 
   #right h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 }
 
@@ -311,15 +565,26 @@ button:hover {
   .Navbar {
     flex-direction: column;
     text-align: center;
+    padding: 18px 5%;
   }
 
   .Navbar ul {
     justify-content: center;
+    gap: 1.2rem;
   }
 
   #hero {
     flex-direction: column;
     text-align: center;
+    padding: 60px 6%;
+  }
+
+  #hero::after {
+    display: none;
+  }
+
+  #right {
+    max-width: 100%;
   }
 
   #buttonDiv {
@@ -327,35 +592,38 @@ button:hover {
   }
 
   #right h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   #right p {
     font-size: 1rem;
+    max-width: 100%;
   }
 
   #registerDiv,
   #loginDiv,
   #writeStoryDiv {
-    padding: 25px;
+    padding: 30px 24px;
   }
 
-  #commentInput {
-    width: 100%;
+  #theStoryDiv {
+    padding: 50px 6%;
   }
 
-  .commentDiv2 {
-    width: 100%;
+  #enjoyWriting,
+  #genreHeading,
+  #commentHeading {
+    font-size: 1.9rem;
   }
 }
 
 @media (max-width: 480px) {
   #navHeading {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
   }
 
   #right h1 {
-    font-size: 1.7rem;
+    font-size: 1.85rem;
   }
 
   button {
@@ -371,12 +639,18 @@ button:hover {
   #loginDiv,
   #writeStoryDiv {
     width: 92%;
-    padding: 20px;
+    padding: 22px 18px;
+    margin: 40px auto;
   }
 
+  #genreRow {
+    padding: 40px 5%;
+    gap: 1.4rem;
+  }
+
+  #enjoyWriting,
   #genreHeading,
-  #commentHeading,
-  #enjoyWriting {
-    font-size: 1.5rem;
+  #commentHeading {
+    font-size: 1.6rem;
   }
 }
