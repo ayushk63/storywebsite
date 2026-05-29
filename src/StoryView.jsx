@@ -21,7 +21,7 @@ function StoryView() {
     const viewComments = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:3000/story/viewcomments",
+                "https://storywebsite-r3kv.onrender.com/story/viewcomments",
                 {
                     params: { title }
                 }
@@ -36,7 +36,7 @@ function StoryView() {
     const viewStory = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:3000/story/findstorybytitle",
+                "https://storywebsite-r3kv.onrender.com/story/findstorybytitle",
                 {
                     params: { title }
                 }
@@ -64,7 +64,7 @@ function StoryView() {
     const likeStory = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3000/story/likestory",
+                "https://storywebsite-r3kv.onrender.com/story/likestory",
                 {
                     title
                 }
@@ -79,7 +79,7 @@ function StoryView() {
     const postComment = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3000/story/postcomment",
+                "https://storywebsite-r3kv.onrender.com/story/postcomment",
                 {
                     title,
                     comment: newComment
@@ -95,7 +95,7 @@ function StoryView() {
     const viewStoriesByGenre = async (viewGenre) => {
         try {
             const response = await axios.get(
-                "http://localhost:3000/story/findstoriesbygenre",
+                "https://storywebsite-r3kv.onrender.com/story/findstoriesbygenre",
                 {
                     params: { genre: viewGenre }
                 }
@@ -110,7 +110,7 @@ function StoryView() {
     const showGenreStory = async (genreStoryTitle) => {
         try {
             const response = await axios.get(
-                "http://localhost:3000/story/findstorybytitle",
+                "https://storywebsite-r3kv.onrender.com/story/findstorybytitle",
                 {
                     params: { title: genreStoryTitle }
                 }
@@ -131,7 +131,7 @@ function StoryView() {
     const likeStory2 = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3000/story/likestory",
+                "https://storywebsite-r3kv.onrender.com/story/likestory",
                 {
                     title
                 }

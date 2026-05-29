@@ -17,7 +17,7 @@ function StoryWrite() {
 
     const publishStory = async () => {
         try {
-            const response = await axios.post("http://localhost:3000/story/publish", {
+            const response = await axios.post("https://storywebsite-r3kv.onrender.com/story/publish", {
                 title,
                 author,
                 genre,

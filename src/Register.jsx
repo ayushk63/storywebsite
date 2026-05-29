@@ -12,7 +12,7 @@ function Register() {
 
     const registerUser = async () => {
         try {
-            const response = await axios.post("http://localhost:3000/users/register", {
+            const response = await axios.post("https://storywebsite-r3kv.onrender.com/users/register", {
                 name,
                 username,
                 email,

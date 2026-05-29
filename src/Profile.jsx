@@ -25,7 +25,7 @@ function Profile() {
     const logoutUser = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3000/users/logout",
+                "https://storywebsite-r3kv.onrender.com/users/logout",
                 {},
                 {
                     withCredentials: true
@@ -50,7 +50,7 @@ function Profile() {
     const updateName = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3000/users/updatename", 
+                "https://storywebsite-r3kv.onrender.com/users/updatename", 
                 {
                     username,
                     newName
@@ -68,7 +68,7 @@ function Profile() {
     const updatePassword = async () => {
         try {
             await axios.post(
-                "http://localhost:3000/users/updatepassword",
+                "https://storywebsite-r3kv.onrender.com/users/updatepassword",
                 {
                     username,
                     oldPassword,
