@@ -94,7 +94,7 @@ function Profile() {
                     updateNameDiv.style.display = 'none';
                 }
             }}>UPDATE NAME</button><br />
-            <div id = 'updateNameDiv'>
+            <div id = 'updateNameDiv' style={{ display: 'none' }}>
                 <input type = 'text' placeholder="Enter New Name...." id = 'newNameInput'
                 onChange={(e) => setNewName(e.target.value)} />
                 <br />
@@ -109,7 +109,7 @@ function Profile() {
                     updatePasswordDiv.style.display = 'none';
                 }
             }}>UPDATE PASSWORD</button><br />
-            <div id="updatePasswordDiv">
+            <div id="updatePasswordDiv" style = {{ display: 'none' }}>
                 <input type = 'password' placeholder="Enter Old Password...." id = 'oldPasswordInput'
                 onChange={(e) => setOldPassword(e.target.value)} />
                 <br />
