@@ -6,10 +6,15 @@ function Navbar() {
         <div className = 'Navbar'>
             <div id = 'navHeading'>STORYFLIX</div>
             <ul>
-                <li>Home</li>
-                <li>Profile</li>
-                <li>About</li>
-                <li>Stories</li>
+                <Link to = '/writestory' className='navLink'>
+                    <li>WRITE</li>
+                </Link>
+                <Link to = '/viewstory' className='navLink'>
+                    <li>READ</li>
+                </Link>
+                <Link to = '/profile' className='navLink'>
+                    <li>PROFILE</li>
+                </Link>
             </ul>
         </div>
     );
