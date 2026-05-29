@@ -1,10 +1,15 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 html,
 body {
   overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fb;
+  color: #111;
 }
 
 img {
@@ -13,29 +18,48 @@ img {
   display: block;
 }
 
+button {
+  transition: all 0.3s ease;
+}
+
 /* =========================
-   NAVBAR RESPONSIVE
+   NAVBAR
 ========================= */
 
 .Navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 18px 6%;
+  background: #111;
+  color: white;
   flex-wrap: wrap;
-  padding: 12px 20px;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#navHeading {
+  font-size: 1.7rem;
+  font-weight: 700;
 }
 
 .Navbar ul {
   display: flex;
-  gap: 1rem;
-  margin-left: 0;
-  padding: 0;
+  gap: 1.5rem;
+  list-style: none;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-#navHeading {
-  margin-left: 0;
+.Navbar ul li {
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.Navbar ul li:hover {
+  color: #ff4d6d;
 }
 
 /* =========================
@@ -44,26 +68,35 @@ img {
 
 #hero {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 3rem;
-  padding: 40px 20px;
+  align-items: center;
+  gap: 4rem;
+  padding: 70px 6%;
   flex-wrap: wrap;
 }
 
 #right {
-  margin-top: 0;
-  text-align: center;
-  max-width: 600px;
+  flex: 1;
+  min-width: 300px;
+}
+
+#right h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+#right p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
 }
 
 #buttonDiv {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-left: 0;
   gap: 1rem;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 /* =========================
@@ -74,8 +107,8 @@ img {
 #loginButton,
 #writeStoryButton,
 #viewStoryButton,
-#searchButton,
 #publishButton,
+#searchButton,
 #commentButton,
 #logoutButton,
 #registerButton2,
@@ -84,34 +117,147 @@ img {
 .genreStoryButton,
 .updateButton,
 .updateButton2 {
-  max-width: 100%;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+#registerButton,
+.genreStoryButton,
+.updateButton {
+  background: #ff4d4d;
+  color: white;
+}
+
+#loginButton,
+.genreButton {
+  background: #008f5d;
+  color: white;
+}
+
+#writeStoryButton {
+  background: #1f5eff;
+  color: white;
+}
+
+#viewStoryButton,
+#publishButton,
+.updateButton2 {
+  background: #7b2cff;
+  color: white;
+}
+
+#searchButton,
+#commentButton,
+#logoutButton,
+#registerButton2,
+#loginButton2 {
+  background: #111;
+  color: white;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
 /* =========================
-   FORMS RESPONSIVE
+   FORMS
 ========================= */
 
 #registerDiv,
-#loginDiv {
+#loginDiv,
+#writeStoryDiv {
   width: 100%;
   max-width: 420px;
-  margin: 40px auto;
-  height: auto;
+  margin: 50px auto;
+  padding: 35px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+}
+
+#writeStoryDiv {
+  max-width: 650px;
 }
 
 #registerForm,
 #loginForm {
-  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .input,
-#commentInput,
 #storyInput,
+#commentInput,
 #newNameInput,
 #oldPasswordInput,
 #newPasswordInput {
   width: 100%;
-  max-width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input:focus,
+#storyInput:focus,
+#commentInput:focus {
+  border-color: #7b2cff;
+}
+
+.label {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* =========================
+   STORIES SECTION
+========================= */
+
+.genreStoryDiv,
+.commentDiv2 {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  margin-top: 24px;
+}
+
+.genreStoryTitle {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   GENRES
+========================= */
+
+#genreRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  padding: 40px 6%;
+}
+
+.genreImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.genreLabel {
+  display: block;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 /* =========================
@@ -120,72 +266,50 @@ img {
 
 #theStoryDiv {
   display: flex;
-  gap: 2rem;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 50px 6%;
   flex-wrap: wrap;
 }
 
-#writeStoryDiv {
-  width: 100%;
-  max-width: 600px;
-  margin: 30px auto;
-}
-
 #storyWritingImage2 {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  margin: 0 auto;
-}
-
-#enjoyWriting {
-  margin-left: 0;
-  text-align: center;
-  padding: 0 20px;
+  max-width: 500px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 /* =========================
-   COMMENTS
+   HEADINGS
 ========================= */
 
-.commentDiv2 {
-  width: calc(100% - 40px);
-  max-width: 700px;
-}
-
-/* =========================
-   GENRE SECTION
-========================= */
-
-#genreRow {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  margin: 30px 20px;
-}
-
-.genreStoryDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#enjoyWriting,
+#genreHeading,
+#commentHeading {
   text-align: center;
-}
-
-.genreImage {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
+  margin-top: 40px;
+  font-size: 2rem;
+  font-weight: 800;
 }
 
 /* =========================
-   TABLET RESPONSIVE
+   RESPONSIVE DESIGN
 ========================= */
 
 @media (max-width: 1024px) {
+  #hero {
+    padding: 50px 5%;
+    gap: 2rem;
+  }
+
+  #right h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
   .Navbar {
     flex-direction: column;
-    gap: 1rem;
     text-align: center;
   }
 
@@ -198,130 +322,61 @@ img {
     text-align: center;
   }
 
-  #right {
-    font-size: 1.2rem;
-  }
-
   #buttonDiv {
-    width: 100%;
+    justify-content: center;
   }
 
-  #registerButton,
-  #loginButton {
-    width: 180px;
+  #right h1 {
+    font-size: 2rem;
   }
 
-  #storyWritingImage2 {
-    margin-top: 20px;
-  }
-}
-
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
-
-@media (max-width: 768px) {
-  body {
-    padding: 0;
-  }
-
-  .Navbar {
-    padding: 15px;
-  }
-
-  .Navbar ul {
-    gap: 0.5rem;
-  }
-
-  .Navbar ul li {
-    font-size: 0.95rem;
-  }
-
-  #hero {
-    padding: 20px 15px;
-    gap: 2rem;
-  }
-
-  #right {
+  #right p {
     font-size: 1rem;
   }
 
-  #buttonDiv {
-    flex-direction: column;
-  }
-
-  #registerButton,
-  #loginButton,
-  #writeStoryButton,
-  #viewStoryButton,
-  #searchButton,
-  #publishButton,
-  #commentButton,
-  #logoutButton,
-  #registerButton2,
-  #loginButton2,
-  .genreButton,
-  .genreStoryButton,
-  .updateButton,
-  .updateButton2 {
-    width: 100%;
-  }
-
   #registerDiv,
-  #loginDiv {
-    margin: 20px auto;
-    padding: 20px 15px;
-  }
-
+  #loginDiv,
   #writeStoryDiv {
-    padding: 15px;
+    padding: 25px;
   }
 
   #commentInput {
     width: 100%;
   }
 
-  #genreHeading,
-  #commentHeading,
-  #enjoyWriting {
-    text-align: center;
-  }
-
   .commentDiv2 {
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
   }
 }
 
-/* =========================
-   SMALL MOBILE DEVICES
-========================= */
-
 @media (max-width: 480px) {
   #navHeading {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
 
-  .Navbar ul li {
-    font-size: 0.85rem;
+  #right h1 {
+    font-size: 1.7rem;
   }
 
-  #right {
-    font-size: 0.95rem;
+  button {
+    width: 100%;
   }
 
-  .label,
-  .genreLabel,
-  .genreStoryTitle {
-    font-size: 1rem;
-  }
-
-  #genreRow {
-    grid-template-columns: 1fr;
+  #buttonDiv {
+    flex-direction: column;
+    width: 100%;
   }
 
   #registerDiv,
-  #loginDiv {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  #loginDiv,
+  #writeStoryDiv {
+    width: 92%;
+    padding: 20px;
+  }
+
+  #genreHeading,
+  #commentHeading,
+  #enjoyWriting {
+    font-size: 1.5rem;
   }
 }
