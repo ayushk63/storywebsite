@@ -50,10 +50,6 @@ function StoryWrite() {
                         <button id = 'publishButton' onClick={publishStory}>Publish</button>
                     </form>
                 </div>
-                <div id = 'storyDiv2'>
-                    <div id = 'enjoyWriting'>Enjoy Writing!</div>
-                    <img src = { storywriting2 } id = 'storyWritingImage2' />
-                </div>
             </div>
         </div>
     );
